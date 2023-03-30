@@ -52,10 +52,11 @@ Sub btn_Tesseract_fix_Rows()
         End If
     Next i
     
-      Sheets("Tesseract_Results").Calculate
+   Sheets("Tesseract_Results").Calculate
       Sheets("Tesseract_Results_New_Batch").Calculate
-   
-
+      Sheets("Database_Oryx_Automated").Calculate
+      Sheets("ImageMagick_Pre-Processing").Calculate
+      
 End Sub
 
 Sub btn_create_new_batch()
@@ -159,6 +160,7 @@ Sheets("Tesseract_Results_New_Batch").Range("C2:C100000").Value = ""
 
       Sheets("Tesseract_Results").Calculate
       Sheets("Tesseract_Results_New_Batch").Calculate
-   
+      Sheets("Database_Oryx_Automated").Calculate
+      Sheets("ImageMagick_Pre-Processing").Calculate
 End Sub
 

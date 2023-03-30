@@ -16,7 +16,7 @@ Dim adSaveCreateOverWrite As Integer
  Set ws = ThisWorkbook.Sheets("Image_Download")
 
 ' Get the last row of column D in the worksheet
- lLastRow = ws.Range("D" & ws.Rows.Count).End(xlUp).Row
+ lLastRow = ws.Range("D" & ws.Rows.count).End(xlUp).Row
 
 ' Get the folder name from cell D2 in the worksheet
  FolderName = ws.Range("D2").Value
@@ -62,6 +62,7 @@ HTTPError:
  Resume NextRow
  
 End Sub
+
 Sub btn_save_image_names()
 
     Dim MyRange As Range

@@ -6,10 +6,11 @@ Sheets("Tesseract_Commands").Calculate
     username = Environ("username")
     
     Dim filePath As String
+    ' If Tesseract does not launch. Change this line to your source path for Tesseract.
     filePath = "C:\Users\" & username & "\AppData\Local\Programs\Tesseract-OCR\winpath.exe"
     
     If Dir(filePath) = "" Then
-        MsgBox "Can't find Tesseract installation. Please launch the program manually.", vbCritical, "Error"
+        MsgBox "Can't find Tesseract installation. Please launch the program manually or change source path.", vbCritical, "Error"
     Else
         Dim shellID As Double
         shellID = Shell(filePath & " cmd", vbNormalFocus)

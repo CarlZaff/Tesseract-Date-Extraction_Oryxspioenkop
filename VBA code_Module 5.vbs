@@ -42,6 +42,8 @@ Sub btn_tesseract_transfer_dates()
     Sheets("Database_Oryx_Automated").Calculate
     Sheets("Graphical Overview").Calculate
     Sheets("Tesseract_Results").Calculate
+    Sheets("ImageMagick_Pre-Processing").Calculate
+    Sheets("Tesseract_Results_New_Batch").Calculate
 End Sub
 Sub btn_create_new_batch_2()
 Dim textData As String
@@ -110,7 +112,7 @@ count = 0
                     If Cell.Column = 1 And IsEmpty(Cell.Offset(0, 1)) Then ' Check if cell in column B is empty
                         count = count + 1
                         ts.WriteLine Cell.Value & ".jpg" ' Write the value of the cell to the text file
-                        textData = textData & "Copy " & """" & folderPathResize & "\" & Cell.Value & ".jpg" & """ " & """" & folderPath & """" & vbNewLine ' Write to CMD copy-script
+                         textData = textData & "Copy " & """" & folderPathResize & "\" & Cell.Value & ".jpg" & """ " & """" & folderPath & """" & vbNewLine ' Write to CMD copy-script
                         Sheets("Tesseract_Results_New_Batch").Range("C1").Offset(count).Value = Cell.Value
                         
                       

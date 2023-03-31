@@ -30,7 +30,7 @@ units.append('Trucks, Vehicles and Jeeps')
 units2.append('Anti-Aircraft Guns')
 units2.append('Aircraft')
 
-# Remove unnecessary code
+# Remove unnecessary HTML code
 editor.rereplace('(?!^.+destroyed.+)(?!^.+captured.+)(?!^.+damaged.+)(?!^.+abandoned.+)^.+','')
 
 # HTTPS URL to new row
@@ -55,6 +55,9 @@ editor.rereplace('(?!.*Self-Propelled Anti-Aircraft Guns)^.*'+(units2[0]),'\\n//
 editor.rereplace('(?!.*Anti-Aircraft)^.*'+(units2[1]),'\\n// new unit below '+units2[1]+'\\t\\t\\t')
 
 
+# mark new vehicles
+editor.rereplace('width="\\d*" */*>','\\n// new vehicle below')
+
 # Clean-up headers
 editor.rereplace('<br></span></h3><p style="text-align: left;"><br></p><h3>','')
 
@@ -62,16 +65,13 @@ editor.rereplace('<br></span></h3><p style="text-align: left;"><br></p><h3>','')
 editor.rereplace('</h3><h3>','')
 
 # Clean vehicle row
-editor.rereplace('(&nbsp;)','\\n\\1')
+editor.rereplace('(&nbsp;)',' ')
 
 # Correct URLs and move status to 5th column
 i=1
 while (i<3):
  editor.rereplace('^(https:.+/.+)">* *(\\(*)','\\1\\t\\t\\t\\t\\t\\2')
  i=i+1
-
-# mark new vehicles
-editor.rereplace('width="\\d*" * /*>','\\n// new vehicle below')
 
 # Remove unnecessary text after status text
 editor.rereplace('(\\(\\d+,.+\\)).+','\\1')
@@ -104,7 +104,7 @@ editor.rereplace('^ *\\r*\\n','')
 editor.rereplace('(// new vehicle below) *(\\d.*)','\\1\\n\\2')
 
 # Fix new vehicle, move vehicle quantity to correct place
-editor.rereplace('(// new vehicle below) *\\n(?!https.*)(.*)\\n*(?!https.*)(.*)','\\1\\n\\2 \\3')
+#editor.rereplace('(// new vehicle below) *\\n(?!https.*)(.*)\\n*(?!https.*)(.*)','\\1\\n\\2 \\3')
 
 # Remove unwanted characters
 editor.rereplace('<.+>','')
@@ -122,7 +122,7 @@ editor.rereplace('["<>]','')
 editor.rereplace(' +',' ')
 
 # Patch // new vehicles/units
-editor.rereplace('(^//.+$)\\n(.+)','\\1 \\2')
+editor.rereplace('(^// new ve.+$)\\n(.+)','\\1 \\2')
 
 # Remove contributors
 editor.rereplace('(^Special thanks to.*\\r*\\n*.*\\r*\\n*.*\\r*\\n*.*\\r*\\n*.*\\r*\\n*.*\\r*\\n*.*\\r*\\n*.*\\r*\\n*.*\\r*\\n*.*\\r*\\n*.*\\r*\\n*.*\\r*\\n*.*\\r*\\n*.*\\r*\\n*.*\\r*\\n*.*\\r*\\n*.*\\r*\\n*.*\\r*\\n*.*\\r*\\n*.*\\r*\\n*.*\\r*\\n*.*\\r*\\n*.*\\r*\\n*.*\\r*\\n*.*\\r*\\n*.*\\r*\\n*.*\\r*\\n*.*\\r*\\n*.*\\r*\\n*.*\\r*\\n*.*)','')

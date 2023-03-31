@@ -30,6 +30,8 @@ units.append('Trucks, Vehicles and Jeeps')
 units2.append('Anti-Aircraft Guns')
 units2.append('Aircraft')
 
+# Remove unnecessary code
+editor.rereplace('(?!^.+destroyed.+)(?!^.+captured.+)(?!^.+damaged.+)(?!^.+abandoned.+)^.+','')
 
 # HTTPS URL to new row
 editor.rereplace('(<a href=")','\\n\\1')
@@ -69,7 +71,7 @@ while (i<3):
  i=i+1
 
 # mark new vehicles
-editor.rereplace('width="\\d*">','\\n// new vehicle below')
+editor.rereplace('width="\\d*" * /*>','\\n// new vehicle below')
 
 # Remove unnecessary text after status text
 editor.rereplace('(\\(\\d+,.+\\)).+','\\1')
@@ -162,3 +164,6 @@ editor.rereplace('// .+','')
 
 # Fix faulty URL (status)
 editor.rereplace('(?!https://.+\\t)(https:.+) *(\\()','\\1\\t\\2')
+
+# Final removal of faulty URLs
+editor.rereplace('https://www\.oryxspioenkop.+\\r*\\n','')

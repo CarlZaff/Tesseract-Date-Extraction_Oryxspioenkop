@@ -100,3 +100,6 @@ editor.rereplace('^(?!1010101).+\\r*\\n','')
 
 # Fix line feed, removes \r characters
 editor.rereplace('\\x0D\\x0A','\\x0A')
+
+# Remove faulty years example 7202
+editor.rereplace('(^1010101).+\\.(?!202[2-3]$)\\d{4}','\\1')
